@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang = es>
+    <head>
+        <title> Calculadora de prueba </title>
+        <meta charset="UTF-8">
+    </head>
+    <body> 
+        <h1> CALCULADORA SUMA, RESTA, MULTIPLICACIÓN Y DIVISIÓN </h1>
+        <p> Seleccione la operación que desea efectuar: </p>
+        <select id="operacion"> 
+            <option value="suma"> Suma </option>
+            <option value="resta"> Resta </option>
+            <option value="multiplicacion"> Multiplicación </option>
+            <option value="division"> División </option>
+        </select>
+
+        <form action="datos" method="get"></form>
+        <P><div class="divinput">  
+            <input type="number" placeholder="Cantidad A" id="dato1" autofocus >   
+            </div>
+            <P><div class="divinput">  
+                <input type="number" placeholder="Cantidad B" id="dato2" autofocus >   
+                </div>
+        
+
+        <br>
+
+    <button onclick="selecciondatos()">Calcular</button>
+    
+</form>
+    
+     <div id="seleccion"></div>
+    
+    <script>
+
+
+    function selecciondatos(){
+    var dato1 = parseFloat(document.getElementById("dato1").value);
+    var dato2 = parseFloat(document.getElementById("dato2").value);
+    var operacion = document.getElementById("operacion").value;
+    var seleccionElement = document.getElementById("seleccion");
+    seleccionElement.innerHTML = "";
+
+            if (operacion === "suma") {
+                seleccionElement.textContent = "El resultado de la suma es: " + (dato1+dato2);
+            } 
+            else if (operacion === "resta") {
+                seleccionElement.textContent = "El resultado de la resta es: " + (dato1-dato2);
+            }
+            else if (operacion === "multiplicacion") {
+                seleccionElement.textContent = "El resultado de la multiplicación es: " + (dato1*dato2);
+            }
+            if (operacion === "division") {
+
+            if (dato2 !== 0 ) {
+                seleccionElement.textContent = "El resultado de la división es: " + (dato1/dato2);
+            }else {
+                    seleccionElement.textContent = "No es posible dividir entre 0";
+                }
+
+            }
+        }
+        
+    </script>
+    </body>
+
+</html>
